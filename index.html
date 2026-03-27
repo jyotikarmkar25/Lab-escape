@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Lab Escape - Chemistry Infinite Runner</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div id="game-container">
+
+    <!-- Background -->
+    <div id="bg-layer-1" class="bg-layer"></div>
+    <div id="bg-layer-2" class="bg-layer"></div>
+    <div id="bg-layer-3" class="bg-layer"></div>
+
+    <!-- Canvas -->
+    <canvas id="game-canvas"></canvas>
+
+    <!-- HUD -->
+    <div id="hud">
+        <div id="score-display">
+            <div class="hud-label">SCORE</div>
+            <div id="score-value">0</div>
+        </div>
+
+        <div id="highscore-display">
+            <div class="hud-label">BEST</div>
+            <div id="highscore-value">0</div>
+        </div>
+
+        <div id="elements-display">
+            <div class="hud-label">ELEMENTS</div>
+            <div id="elements-icons"></div>
+        </div>
+
+        <div id="powerup-display">
+            <div class="powerup-indicator hidden" id="shield-indicator">
+                <span class="powerup-icon">🛡️</span>
+                <span class="powerup-timer">0</span>
+            </div>
+            <div class="powerup-indicator hidden" id="magnet-indicator">
+                <span class="powerup-icon">🧲</span>
+                <span class="powerup-timer">0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= START SCREEN ================= -->
+    <div id="start-screen" class="screen active">
+        <div class="screen-content">
+
+            <div class="game-title">
+                <span class="title-text">LAB ESCAPE</span>
+            </div>
+
+            <p class="game-subtitle">CHEMISTRY INFINITE RUNNER</p>
+
+            <!-- Decorative Flask -->
+            <div class="decorative-flask">
+                <div class="flask">
+                    <div class="flask-liquid"></div>
+                    <div class="flask-bubbles"></div>
+                </div>
+            </div>
+
+            <!-- 🔥 NEW INSTRUCTIONS -->
+            <div class="instructions">
+                <h3>How to Play</h3>
+                <ul>
+                    <li>⬅️ ➡️ Move left and right</li>
+                    <li>⬆️ Jump over dangerous lab obstacles</li>
+                    <li>⬇️ Slide under flying equipment</li>
+                    <li>🧪 Collect chemical elements to increase score</li>
+                    <li>⚡ Use power-ups like Shield & Magnet</li>
+                    <li>🚫 Avoid acids, burners, and glassware</li>
+                </ul>
+            </div>
+
+            <button class="game-btn" id="start-btn">PLAY</button>
+
+        </div>
+    </div>
+
+    <!-- ================= PAUSE SCREEN ================= -->
+    <div id="pause-screen" class="screen">
+        <div class="screen-content">
+            <h2 class="pause-title">PAUSED</h2>
+
+            <button class="game-btn" id="resume-btn">RESUME</button>
+            <button class="game-btn secondary" id="quit-btn">QUIT</button>
+        </div>
+    </div>
+
+    <!-- ================= GAME OVER ================= -->
+    <div id="gameover-screen" class="screen">
+        <div class="screen-content">
+
+            <h2 class="gameover-title">GAME OVER</h2>
+
+            <div class="final-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Score</span>
+                    <span class="stat-value" id="final-score">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Distance</span>
+                    <span class="stat-value" id="final-distance">0m</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Elements</span>
+                    <span class="stat-value" id="final-elements">0</span>
+                </div>
+            </div>
+
+            <div class="collected-elements">
+                <div class="elements-label">Collected Elements:</div>
+                <div id="final-elements-display"></div>
+            </div>
+
+            <button class="game-btn" id="restart-btn">PLAY AGAIN</button>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
