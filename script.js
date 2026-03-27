@@ -11,7 +11,8 @@ class Game {
 
         this.elementCount = 0;
         this.collectedElements = [];
-        this.highScore = localStorage.getItem("highScore") || 0;
+        this.highScore = Number(localStorage.getItem("highScore")) || 0;
+        document.getElementById("highscore-value").innerText = this.highScore;
 
         this.state = "start";
         this.gameSpeed = 6;
@@ -145,6 +146,14 @@ class Game {
         });
 
         this.score++;
+
+
+if (this.score > this.highScore) {
+    this.highScore = this.score;
+    localStorage.setItem("highScore", this.highScore);
+    document.getElementById("highscore-value").innerText = this.highScore;
+}
+
         document.getElementById("score-value").innerText = this.score;
     }
 
@@ -177,7 +186,13 @@ class Game {
         this.isRunning = false;
         this.state = "gameover";
 
+    if (this.score > this.highScore) {
+        this.highScore = this.score;
+        localStorage.setItem("highScore", this.highScore);
+    }
+
         document.getElementById("final-score").innerText = this.score;
+        document.getElementById("highscore-value").innerText = this.highScore;
         document.getElementById("gameover-screen").classList.add("active");
     }
 
